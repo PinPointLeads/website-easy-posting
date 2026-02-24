@@ -34,33 +34,23 @@
         }
     </script>
     <style>
-        /* Base styles */
         body {
             background-color: #090909;
         }
-
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-
-        /* Custom focus styles */
         .focus-ring:focus-visible {
             outline: 2px solid #3ECF8E;
             outline-offset: 2px;
         }
-
-        /* Glow effect for primary elements */
         .glow-green {
             box-shadow: 0 0 40px rgba(62, 207, 142, 0.15),
                         0 0 80px rgba(62, 207, 142, 0.08);
         }
-
         .glow-green-sm {
             box-shadow: 0 0 20px rgba(62, 207, 142, 0.12);
         }
-
-        /* Button animations */
         .btn-primary {
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
                         box-shadow 0.2s ease,
@@ -74,7 +64,6 @@
         .btn-primary:active {
             transform: translateY(0);
         }
-
         .btn-secondary {
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
                         background-color 0.2s ease,
@@ -86,8 +75,6 @@
         .btn-secondary:active {
             transform: translateY(0);
         }
-
-        /* Card hover */
         .feature-card {
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
                         box-shadow 0.3s ease,
@@ -97,30 +84,32 @@
         .feature-card:hover {
             transform: translateY(-4px);
         }
-
-        /* Gradient text */
         .gradient-text {
             background: linear-gradient(135deg, #3ECF8E 0%, #14B8A6 50%, #3ECF8E 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        /* Grid pattern background */
         .grid-pattern {
             background-image:
                 linear-gradient(rgba(62, 207, 142, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(62, 207, 142, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
-
-        /* Radial gradient glow */
         .radial-glow {
             background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(62, 207, 142, 0.12), transparent);
         }
-
         .radial-glow-bottom {
             background: radial-gradient(ellipse 80% 50% at 50% 120%, rgba(62, 207, 142, 0.08), transparent);
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-icon {
+            transition: transform 0.2s ease;
         }
     </style>
 </head>
@@ -143,12 +132,12 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-ep-text-muted hover:text-ep-text font-medium text-sm tracking-wide focus-ring rounded px-2 py-1 transition-colors duration-200">Features</a>
                     <a href="#how-it-works" class="text-ep-text-muted hover:text-ep-text font-medium text-sm tracking-wide focus-ring rounded px-2 py-1 transition-colors duration-200">How It Works</a>
-                    <a href="#pricing" class="text-ep-text-muted hover:text-ep-text font-medium text-sm tracking-wide focus-ring rounded px-2 py-1 transition-colors duration-200">Pricing</a>
+                    <a href="#platforms" class="text-ep-text-muted hover:text-ep-text font-medium text-sm tracking-wide focus-ring rounded px-2 py-1 transition-colors duration-200">Platforms</a>
+                    <a href="#faq" class="text-ep-text-muted hover:text-ep-text font-medium text-sm tracking-wide focus-ring rounded px-2 py-1 transition-colors duration-200">FAQ</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="#" class="hidden sm:block text-ep-text-muted hover:text-ep-text font-medium text-sm focus-ring rounded px-2 py-1 transition-colors duration-200">Log In</a>
                     <a href="#cta" class="btn-primary bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold text-sm px-5 py-2.5 rounded-lg focus-ring">
-                        Get Started
+                        Get Early Access
                     </a>
                 </div>
             </div>
@@ -156,485 +145,570 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <!-- Background effects -->
-        <div class="absolute inset-0 grid-pattern"></div>
-        <div class="absolute inset-0 radial-glow"></div>
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-radial from-ep-green/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none"></div>
+    <main>
+        <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <div class="absolute inset-0 grid-pattern"></div>
+            <div class="absolute inset-0 radial-glow"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-radial from-ep-green/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-6 py-20">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-ep-green/10 border border-ep-green/20 text-ep-green px-4 py-2 rounded-full text-sm font-medium mb-8">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        Trusted by 2,000+ small businesses
+            <div class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-ep-green/10 border border-ep-green/20 text-ep-green px-4 py-2 rounded-full text-sm font-medium mb-8">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                            </svg>
+                            Powered by Claude AI
+                        </div>
+                        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight mb-6">
+                            Post Smarter,<br>
+                            <span class="gradient-text">Not Harder</span>
+                        </h1>
+                        <p class="text-ep-text-muted text-lg sm:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0" style="line-height: 1.7;">
+                            One upload. Four platforms. Done in seconds. AI-powered social media posting built for tradespeople and local businesses.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#cta" class="btn-primary bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold px-8 py-4 rounded-lg focus-ring text-center">
+                                Get Early Access
+                            </a>
+                            <a href="#how-it-works" class="btn-secondary border border-ep-border hover:border-ep-green/50 hover:bg-ep-green/5 text-ep-text font-semibold px-8 py-4 rounded-lg focus-ring text-center">
+                                See How It Works
+                            </a>
+                        </div>
                     </div>
-                    <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight mb-6">
-                        Post Smarter,<br>
-                        <span class="gradient-text">Not Harder</span>
-                    </h1>
-                    <p class="text-ep-text-muted text-lg sm:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0" style="line-height: 1.7;">
-                        Save time with automated social media posting. Post once, reach all your platforms. Built for small businesses who value efficiency.
+
+                    <!-- Hero illustration -->
+                    <div class="relative">
+                        <div class="relative bg-ep-surface-elevated rounded-2xl p-6 border border-ep-border glow-green">
+                            <div class="flex items-center gap-2 mb-6">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-4 bg-ep-surface rounded-xl border border-ep-border">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-ep-green to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-ep-green/20">
+                                        <svg class="w-6 h-6 text-[#090909]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-semibold text-ep-text">driveway-project.jpg uploaded</div>
+                                        <div class="text-xs text-ep-text-muted">Publishing to 4 platforms...</div>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-4 gap-3">
+                                    <div class="bg-ep-surface rounded-xl p-3 text-center border border-ep-green/30">
+                                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.126-5.864 10.126-11.854z"/></svg>
+                                        </div>
+                                        <div class="text-xs text-ep-green font-medium">Posted</div>
+                                    </div>
+                                    <div class="bg-ep-surface rounded-xl p-3 text-center border border-ep-green/30">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                        </div>
+                                        <div class="text-xs text-ep-green font-medium">Posted</div>
+                                    </div>
+                                    <div class="bg-ep-surface rounded-xl p-3 text-center border border-ep-green/30">
+                                        <div class="w-8 h-8 bg-blue-700 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                        </div>
+                                        <div class="text-xs text-ep-green font-medium">Posted</div>
+                                    </div>
+                                    <div class="bg-ep-surface rounded-xl p-3 text-center border border-ep-green/30">
+                                        <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                            <span class="text-white font-bold text-xs">G</span>
+                                        </div>
+                                        <div class="text-xs text-ep-green font-medium">Posted</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-4 bg-ep-green/10 rounded-xl border border-ep-green/20">
+                                    <div class="w-10 h-10 bg-ep-green rounded-full flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-[#090909]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-ep-text">All 4 platforms posted!</div>
+                                        <div class="text-xs text-ep-text-muted">Completed in 12 seconds</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-4 -right-4 bg-ep-surface-elevated rounded-xl shadow-xl p-3 border border-ep-border">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-ep-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-ep-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-semibold text-ep-green">30 sec</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-24 relative">
+            <div class="absolute inset-0 radial-glow-bottom"></div>
+            <div class="relative z-10 max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        Everything you need. <span class="gradient-text">Nothing you don't.</span>
+                    </h2>
+                    <p class="text-ep-text-muted text-lg max-w-2xl mx-auto" style="line-height: 1.7;">
+                        Upload once, post everywhere. No scheduling, no copying and pasting, no wasted time.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#cta" class="btn-primary bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold px-8 py-4 rounded-lg focus-ring text-center">
-                            Start Your Project
-                        </a>
-                        <a href="#how-it-works" class="btn-secondary border border-ep-border hover:border-ep-green/50 hover:bg-ep-green/5 text-ep-text font-semibold px-8 py-4 rounded-lg focus-ring text-center">
-                            Request a Demo
-                        </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Post to All Platforms at Once</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Upload one image and message. We instantly publish to Facebook, Instagram, LinkedIn, and Google Business Profile. No more logging into four different apps.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
+                        <div class="text-4xl mb-4">✨</div>
+                        <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Platform-Optimized Posts, Automatically</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Our AI writes unique posts tailored for each platform. Instagram gets hashtags and emojis. LinkedIn gets professional copy. Google Business Profile gets local SEO. All generated in seconds.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
+                        <div class="text-4xl mb-4">🎤</div>
+                        <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Say It or Type It</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Too busy to type? Record a quick voice message about your work. We'll transcribe it and craft the perfect posts. Or just type a few words—we'll handle the rest.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
+                        <div class="text-4xl mb-4">🔨</div>
+                        <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Made for Your Industry</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Whether you're a landscaper, builder, plumber, or electrician, Easy Posting understands your business. Show off your projects without spending hours on social media.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-ep-surface"></div>
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
+
+            <div class="relative z-10 max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight text-ep-text mb-4">
+                        Three steps. <span class="gradient-text">Thirty seconds.</span>
+                    </h2>
+                    <p class="text-ep-text-muted text-lg max-w-2xl mx-auto" style="line-height: 1.7;">
+                        No complex setup. No learning curve. Just upload and post.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
+                            <span class="text-2xl font-heading font-bold text-ep-green">1</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-ep-text mb-3">Upload Your Image</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Upload a photo of your latest project. Finished driveway? New kitchen install? Garden transformation? Show your work.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
+                            <span class="text-2xl font-heading font-bold text-ep-green">2</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-ep-text mb-3">Add Your Message</h3>
+                        <p class="text-ep-text-muted leading-relaxed mb-4" style="line-height: 1.7;">
+                            Type a quick description or record a voice note. Tell us what you did. We'll turn it into engaging posts.
+                        </p>
+                        <div class="bg-ep-surface-elevated rounded-lg p-3 border border-ep-border inline-block">
+                            <p class="text-sm text-ep-text-muted italic">"Just finished this block paved driveway in Manchester"</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
+                            <span class="text-2xl font-heading font-bold text-ep-green">3</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-ep-text mb-3">AI Does the Rest</h3>
+                        <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
+                            Our AI generates four platform-specific posts and publishes them instantly. You're done. Get back to work.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Hero illustration -->
-                <div class="relative">
-                    <div class="relative bg-ep-surface-elevated rounded-2xl p-6 border border-ep-border glow-green">
-                        <!-- Mock dashboard -->
-                        <div class="flex items-center gap-2 mb-6">
-                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                <!-- Example Outputs -->
+                <div class="bg-ep-surface-elevated rounded-2xl p-8 border border-ep-border">
+                    <h4 class="font-heading font-bold text-lg text-ep-text mb-6 text-center">See what the AI generates:</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-ep-surface rounded-xl p-4 border border-ep-border">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.126-5.864 10.126-11.854z"/></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-ep-text">Facebook</span>
+                            </div>
+                            <p class="text-sm text-ep-text-muted leading-relaxed">Just wrapped up this stunning block paved driveway in Manchester! 🏡 Love how the pattern came together. What do you think? Fancy something similar for your home? Give us a shout!</p>
                         </div>
+                        <div class="bg-ep-surface rounded-xl p-4 border border-ep-border">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-ep-text">Instagram</span>
+                            </div>
+                            <p class="text-sm text-ep-text-muted leading-relaxed">Driveway goals achieved! ✨ Fresh block paving bringing this Manchester home to life. #ManchesterLandscaping #DrivewayDesign #BlockPaving #HomeImprovement #LocalTradie</p>
+                        </div>
+                        <div class="bg-ep-surface rounded-xl p-4 border border-ep-border">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-6 h-6 bg-blue-700 rounded flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-ep-text">LinkedIn</span>
+                            </div>
+                            <p class="text-sm text-ep-text-muted leading-relaxed">Completed another successful block paving project in Manchester this week. Quality materials and precise installation make all the difference. Interested in upgrading your property's curb appeal? Let's discuss your project.</p>
+                        </div>
+                        <div class="bg-ep-surface rounded-xl p-4 border border-ep-border">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">G</span>
+                                </div>
+                                <span class="text-sm font-semibold text-ep-text">Google Business</span>
+                            </div>
+                            <p class="text-sm text-ep-text-muted leading-relaxed">Professional block paved driveway installation in Manchester. Expert craftsmanship, quality materials, and attention to detail. Contact us for a free quote on your next project.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain Points Section -->
+        <section class="py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        Built for <span class="gradient-text">busy business owners</span>
+                    </h2>
+                    <p class="text-ep-text-muted text-lg" style="line-height: 1.7;">
+                        Stop wasting hours on social media. Start showing up where your customers are.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
+                        <div class="text-red-400 text-sm font-medium mb-3">THE PROBLEM</div>
+                        <p class="text-ep-text font-semibold mb-4">"I never have time to post on social media"</p>
+                        <div class="border-t border-ep-border pt-4">
+                            <div class="text-ep-green text-sm font-medium mb-2">THE SOLUTION</div>
+                            <p class="text-ep-text-muted text-sm">Upload once in 30 seconds. We handle the rest.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
+                        <div class="text-red-400 text-sm font-medium mb-3">THE PROBLEM</div>
+                        <p class="text-ep-text font-semibold mb-4">"I don't know what to write for each platform"</p>
+                        <div class="border-t border-ep-border pt-4">
+                            <div class="text-ep-green text-sm font-medium mb-2">THE SOLUTION</div>
+                            <p class="text-ep-text-muted text-sm">AI writes platform-optimized posts automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
+                        <div class="text-red-400 text-sm font-medium mb-3">THE PROBLEM</div>
+                        <p class="text-ep-text font-semibold mb-4">"Copying and pasting the same post four times is tedious"</p>
+                        <div class="border-t border-ep-border pt-4">
+                            <div class="text-ep-green text-sm font-medium mb-2">THE SOLUTION</div>
+                            <p class="text-ep-text-muted text-sm">Post to all platforms with one click.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="py-24 relative">
+            <div class="absolute inset-0 bg-ep-surface"></div>
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        The Old Way vs. <span class="gradient-text">The Easy Way</span>
+                    </h2>
+                </div>
+
+                <div class="bg-ep-surface-elevated rounded-2xl border border-ep-border overflow-hidden">
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 bg-red-500/10 border-b border-r border-ep-border">
+                            <span class="font-semibold text-red-400">The Old Way</span>
+                        </div>
+                        <div class="p-4 bg-ep-green/10 border-b border-ep-border">
+                            <span class="font-semibold text-ep-green">Easy Posting</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 border-b border-r border-ep-border text-ep-text-muted">20 minutes per post</div>
+                        <div class="p-4 border-b border-ep-border text-ep-text font-medium">30 seconds total</div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 border-b border-r border-ep-border text-ep-text-muted">Log into 4 different apps</div>
+                        <div class="p-4 border-b border-ep-border text-ep-text font-medium">Upload once</div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 border-b border-r border-ep-border text-ep-text-muted">Write 4 different posts</div>
+                        <div class="p-4 border-b border-ep-border text-ep-text font-medium">AI writes them all</div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 border-b border-r border-ep-border text-ep-text-muted">Inconsistent posting</div>
+                        <div class="p-4 border-b border-ep-border text-ep-text font-medium">Post every time you complete a job</div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 border-r border-ep-border text-ep-text-muted">Guess what works</div>
+                        <div class="p-4 text-ep-text font-medium">Platform-optimized content</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platforms Section -->
+        <section id="platforms" class="py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        All your platforms. <span class="gradient-text">One upload.</span>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
+                        <h3 class="font-heading font-bold text-lg text-ep-text mb-6">Supported Platforms</h3>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-4 p-4 bg-ep-surface rounded-xl border border-ep-border">
-                                <div class="w-12 h-12 bg-gradient-to-br from-ep-green to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-ep-green/20">
-                                    <svg class="w-6 h-6 text-[#090909]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                                    </svg>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.126-5.864 10.126-11.854z"/></svg>
                                 </div>
-                                <div class="flex-1">
-                                    <div class="text-sm font-semibold text-ep-text">New post scheduled</div>
-                                    <div class="text-xs text-ep-text-muted">Publishing to 4 platforms</div>
-                                </div>
-                                <div class="flex -space-x-2">
-                                    <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-ep-surface-elevated flex items-center justify-center">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                                    </div>
-                                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-2 border-ep-surface-elevated flex items-center justify-center">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    </div>
-                                    <div class="w-8 h-8 bg-blue-600 rounded-full border-2 border-ep-surface-elevated flex items-center justify-center">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                    </div>
-                                    <div class="w-8 h-8 bg-blue-700 rounded-full border-2 border-ep-surface-elevated flex items-center justify-center">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.126-5.864 10.126-11.854z"/></svg>
-                                    </div>
-                                </div>
+                                <span class="text-ep-text">Facebook</span>
+                                <span class="text-ep-green ml-auto">✓</span>
                             </div>
-
-                            <div class="grid grid-cols-3 gap-4">
-                                <div class="bg-ep-surface rounded-xl p-4 text-center border border-ep-border">
-                                    <div class="text-2xl font-heading font-bold text-ep-text">847</div>
-                                    <div class="text-xs text-ep-text-muted">Posts this month</div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
                                 </div>
-                                <div class="bg-ep-surface rounded-xl p-4 text-center border border-ep-border">
-                                    <div class="text-2xl font-heading font-bold text-ep-green">12h</div>
-                                    <div class="text-xs text-ep-text-muted">Time saved</div>
-                                </div>
-                                <div class="bg-ep-surface rounded-xl p-4 text-center border border-ep-border">
-                                    <div class="text-2xl font-heading font-bold text-ep-text">4</div>
-                                    <div class="text-xs text-ep-text-muted">Platforms</div>
-                                </div>
+                                <span class="text-ep-text">Instagram</span>
+                                <span class="text-ep-green ml-auto">✓</span>
                             </div>
-
-                            <div class="flex items-center gap-3 p-4 bg-ep-green/10 rounded-xl border border-ep-green/20">
-                                <div class="w-10 h-10 bg-ep-green rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-[#090909]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-700 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </div>
-                                <div>
-                                    <div class="text-sm font-semibold text-ep-text">All posts published successfully!</div>
-                                    <div class="text-xs text-ep-text-muted">Last sync: 2 minutes ago</div>
+                                <span class="text-ep-text">LinkedIn</span>
+                                <span class="text-ep-green ml-auto">✓</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">G</span>
                                 </div>
+                                <span class="text-ep-text">Google Business Profile</span>
+                                <span class="text-ep-green ml-auto">✓</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Floating element -->
-                    <div class="absolute -top-4 -right-4 bg-ep-surface-elevated rounded-xl shadow-xl p-3 border border-ep-border">
-                        <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 bg-ep-green/20 rounded-full flex items-center justify-center">
-                                <svg class="w-4 h-4 text-ep-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
+                    <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
+                        <h3 class="font-heading font-bold text-lg text-ep-text mb-6">Coming Soon</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-ep-surface-elevated rounded-lg flex items-center justify-center border border-ep-border">
+                                    <svg class="w-4 h-4 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                </div>
+                                <span class="text-ep-text-muted">Twitter/X</span>
                             </div>
-                            <span class="text-sm font-semibold text-ep-green">+127%</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-ep-surface-elevated rounded-lg flex items-center justify-center border border-ep-border">
+                                    <svg class="w-4 h-4 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                                </div>
+                                <span class="text-ep-text-muted">TikTok</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-24 relative">
-        <div class="absolute inset-0 radial-glow-bottom"></div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
-                    Everything you need to <span class="gradient-text">simplify</span> your social presence
+        <!-- Use Cases Section -->
+        <section class="py-24 relative">
+            <div class="absolute inset-0 bg-ep-surface"></div>
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
+
+            <div class="relative z-10 max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        Perfect for <span class="gradient-text">tradespeople & local businesses</span>
+                    </h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-ep-surface-elevated rounded-xl p-6 border border-ep-border">
+                        <div class="text-2xl mb-3">🌳</div>
+                        <h3 class="font-heading font-bold text-ep-text mb-2">Landscapers</h3>
+                        <p class="text-ep-text-muted text-sm">Show off completed gardens, patios, and driveways</p>
+                    </div>
+                    <div class="bg-ep-surface-elevated rounded-xl p-6 border border-ep-border">
+                        <div class="text-2xl mb-3">🏗️</div>
+                        <h3 class="font-heading font-bold text-ep-text mb-2">Builders</h3>
+                        <p class="text-ep-text-muted text-sm">Document renovations, extensions, and new builds</p>
+                    </div>
+                    <div class="bg-ep-surface-elevated rounded-xl p-6 border border-ep-border">
+                        <div class="text-2xl mb-3">⚡</div>
+                        <h3 class="font-heading font-bold text-ep-text mb-2">Electricians</h3>
+                        <p class="text-ep-text-muted text-sm">Highlight installations and rewiring projects</p>
+                    </div>
+                    <div class="bg-ep-surface-elevated rounded-xl p-6 border border-ep-border">
+                        <div class="text-2xl mb-3">🔧</div>
+                        <h3 class="font-heading font-bold text-ep-text mb-2">Plumbers</h3>
+                        <p class="text-ep-text-muted text-sm">Share bathroom renovations and boiler installations</p>
+                    </div>
+                    <div class="bg-ep-surface-elevated rounded-xl p-6 border border-ep-border sm:col-span-2 lg:col-span-2">
+                        <div class="text-2xl mb-3">🏪</div>
+                        <h3 class="font-heading font-bold text-ep-text mb-2">And any local business</h3>
+                        <p class="text-ep-text-muted text-sm">Restaurants, salons, gyms, consultants—anyone who needs a social media presence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 grid-pattern opacity-50"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-gradient-radial from-ep-green/10 via-ep-green/5 to-transparent rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-ep-text mb-6">
+                    Stop posting manually.<br>
+                    <span class="gradient-text">Start posting smarter.</span>
                 </h2>
-                <p class="text-ep-text-muted text-lg max-w-2xl mx-auto" style="line-height: 1.7;">
-                    Focus on your craft, we'll handle the marketing. Professional results without the hassle.
+                <p class="text-ep-text-muted text-lg sm:text-xl mb-8 max-w-2xl mx-auto" style="line-height: 1.7;">
+                    Join the waitlist for early access to Easy Posting.
                 </p>
-            </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-ep-green to-teal-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-ep-green/20">
-                        <svg class="w-7 h-7 text-[#090909]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Multi-Platform Posting</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Post once and reach all your platforms instantly. Facebook, Instagram, Twitter, LinkedIn - all synced automatically.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-ep-green rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Smart Scheduling</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Schedule posts for optimal engagement times. Our AI analyzes when your audience is most active.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-ep-green rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20">
-                        <svg class="w-7 h-7 text-[#090909]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Analytics Dashboard</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Track your performance across all platforms in one unified dashboard. See what's working and optimize.
-                    </p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-ep-green to-purple-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-ep-green/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Media Library</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Store and organize all your images, videos, and graphics in one place. Easy access when you need them.
-                    </p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-teal-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">Team Collaboration</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Work together seamlessly. Assign roles, review posts, and maintain brand consistency across your team.
-                    </p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="feature-card bg-ep-surface rounded-2xl p-8 border border-ep-border hover:border-ep-green/30 hover:bg-ep-surface-elevated">
-                    <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-purple-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl mb-3 text-ep-text">AI Content Suggestions</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Get smart suggestions for captions, hashtags, and optimal posting times based on your industry.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-ep-surface"></div>
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-ep-green/5 to-transparent rounded-full blur-3xl"></div>
-
-        <div class="relative z-10 max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight text-ep-text mb-4">
-                    How It Works
-                </h2>
-                <p class="text-ep-text-muted text-lg max-w-2xl mx-auto" style="line-height: 1.7;">
-                    Get started in minutes. No complex setup, no technical skills required.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
-                        <span class="text-2xl font-heading font-bold text-ep-green">1</span>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-ep-text mb-3">Connect Your Accounts</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Link your social media accounts with a few clicks. We support all major platforms.
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
-                        <span class="text-2xl font-heading font-bold text-ep-green">2</span>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-ep-text mb-3">Create Your Content</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Write your post once. Add images, videos, or use our AI to help craft the perfect message.
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-ep-surface-elevated rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-ep-green glow-green-sm">
-                        <span class="text-2xl font-heading font-bold text-ep-green">3</span>
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-ep-text mb-3">Schedule & Relax</h3>
-                    <p class="text-ep-text-muted leading-relaxed" style="line-height: 1.7;">
-                        Set your schedule or let our AI pick the best times. We handle the rest automatically.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Section -->
-    <section class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
-                    Loved by <span class="gradient-text">small businesses</span> everywhere
-                </h2>
-                <p class="text-ep-text-muted text-lg" style="line-height: 1.7;">
-                    Join thousands of entrepreneurs who've simplified their social media.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Testimonial 1 -->
-                <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-ep-text-muted mb-6 leading-relaxed" style="line-height: 1.7;">
-                        "Easy Posting has saved me at least 10 hours a week. I used to dread social media, now it's completely automated."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-ep-green to-teal-500 rounded-full"></div>
-                        <div>
-                            <div class="font-semibold text-ep-text">Sarah Mitchell</div>
-                            <div class="text-sm text-ep-text-muted">Bakery Owner</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-ep-text-muted mb-6 leading-relaxed" style="line-height: 1.7;">
-                        "The analytics alone are worth it. I finally understand which posts resonate with my audience."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-ep-green rounded-full"></div>
-                        <div>
-                            <div class="font-semibold text-ep-text">Marcus Johnson</div>
-                            <div class="text-sm text-ep-text-muted">Fitness Coach</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-ep-surface rounded-2xl p-8 border border-ep-border">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-ep-text-muted mb-6 leading-relaxed" style="line-height: 1.7;">
-                        "As a solopreneur, this tool is essential. It handles my social media while I focus on serving clients."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-purple-500 rounded-full"></div>
-                        <div>
-                            <div class="font-semibold text-ep-text">Emily Chen</div>
-                            <div class="text-sm text-ep-text-muted">Consultant</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-24 relative">
-        <div class="absolute inset-0 bg-ep-surface"></div>
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
-                    Simple, transparent <span class="gradient-text">pricing</span>
-                </h2>
-                <p class="text-ep-text-muted text-lg" style="line-height: 1.7;">
-                    No hidden fees. No long-term contracts. Cancel anytime.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="bg-ep-surface-elevated rounded-2xl p-8 border border-ep-border">
-                    <div class="text-sm font-semibold text-ep-text-muted uppercase tracking-wider mb-2">Starter</div>
-                    <div class="flex items-baseline gap-1 mb-4">
-                        <span class="text-4xl font-heading font-bold text-ep-text">$9</span>
-                        <span class="text-ep-text-muted">/month</span>
-                    </div>
-                    <p class="text-ep-text-muted text-sm mb-6">Perfect for getting started</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            3 social accounts
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            30 scheduled posts
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Basic analytics
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-secondary block w-full text-center border border-ep-border hover:border-ep-green/50 hover:bg-ep-green/5 text-ep-text font-semibold px-6 py-3 rounded-lg focus-ring">
-                        Get Started
+                <div class="flex flex-col items-center gap-6">
+                    <a href="#" class="btn-primary bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold px-10 py-4 rounded-lg focus-ring text-lg">
+                        Get Early Access
                     </a>
-                </div>
 
-                <!-- Pro Plan (Featured) -->
-                <div class="bg-ep-surface-elevated rounded-2xl p-8 border-2 border-ep-green relative glow-green">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-ep-green text-[#090909] text-xs font-bold px-4 py-1 rounded-full">
-                        MOST POPULAR
+                    <div class="flex flex-col sm:flex-row gap-4 text-sm text-ep-text-muted">
+                        <span class="flex items-center gap-2"><span class="text-ep-green">✓</span> Post to 4 platforms in 30 seconds</span>
+                        <span class="flex items-center gap-2"><span class="text-ep-green">✓</span> AI writes all your content</span>
                     </div>
-                    <div class="text-sm font-semibold text-ep-green uppercase tracking-wider mb-2">Professional</div>
-                    <div class="flex items-baseline gap-1 mb-4">
-                        <span class="text-4xl font-heading font-bold text-ep-text">$29</span>
-                        <span class="text-ep-text-muted">/month</span>
+                    <div class="flex flex-col sm:flex-row gap-4 text-sm text-ep-text-muted">
+                        <span class="flex items-center gap-2"><span class="text-ep-green">✓</span> No monthly fees during beta</span>
+                        <span class="flex items-center gap-2"><span class="text-ep-green">✓</span> Support local businesses like yours</span>
                     </div>
-                    <p class="text-ep-text-muted text-sm mb-6">Best for growing businesses</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            10 social accounts
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Unlimited posts
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Advanced analytics
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            AI content suggestions
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Priority support
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary block w-full text-center bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold px-6 py-3 rounded-lg focus-ring">
-                        Start Your Project
-                    </a>
-                </div>
-
-                <!-- Business Plan -->
-                <div class="bg-ep-surface-elevated rounded-2xl p-8 border border-ep-border">
-                    <div class="text-sm font-semibold text-ep-text-muted uppercase tracking-wider mb-2">Business</div>
-                    <div class="flex items-baseline gap-1 mb-4">
-                        <span class="text-4xl font-heading font-bold text-ep-text">$79</span>
-                        <span class="text-ep-text-muted">/month</span>
-                    </div>
-                    <p class="text-ep-text-muted text-sm mb-6">For teams and agencies</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Unlimited accounts
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Team collaboration
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            White-label reports
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-ep-text">
-                            <svg class="w-5 h-5 text-ep-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Dedicated support
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-secondary block w-full text-center border border-ep-border hover:border-ep-green/50 hover:bg-ep-green/5 text-ep-text font-semibold px-6 py-3 rounded-lg focus-ring">
-                        Contact Sales
-                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section id="cta" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 grid-pattern opacity-50"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-gradient-radial from-ep-green/10 via-ep-green/5 to-transparent rounded-full blur-3xl"></div>
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24 relative">
+            <div class="absolute inset-0 bg-ep-surface"></div>
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ep-border to-transparent"></div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-ep-text mb-6">
-                Ready to simplify your<br>
-                <span class="gradient-text">social media?</span>
-            </h2>
-            <p class="text-ep-text-muted text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style="line-height: 1.7;">
-                Join thousands of small businesses who are saving time and growing their audience with Easy Posting.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#" class="btn-primary bg-ep-green hover:bg-ep-green-dark text-[#090909] font-semibold px-8 py-4 rounded-lg focus-ring text-center">
-                    Start Your Free Trial
-                </a>
-                <a href="#" class="btn-secondary border border-ep-border hover:border-ep-green/50 hover:bg-ep-green/5 text-ep-text font-semibold px-8 py-4 rounded-lg focus-ring text-center">
-                    Watch Demo
-                </a>
+            <div class="relative z-10 max-w-3xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">
+                        Frequently Asked <span class="gradient-text">Questions</span>
+                    </h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">How much does it cost?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            We're currently in beta. Early access users get free access while we perfect the product.
+                        </div>
+                    </details>
+
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">Do I need to connect my social media accounts?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            Yes, we'll help you get set up during onboarding. It takes about 10 minutes.
+                        </div>
+                    </details>
+
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">Can I edit the AI-generated posts before they publish?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            Not yet, but we're building this feature. Currently, posts publish immediately.
+                        </div>
+                    </details>
+
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">What if I don't like what the AI writes?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            The AI is trained on successful social media posts from tradespeople. Most users love what it generates, but we're always improving.
+                        </div>
+                    </details>
+
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">How many posts can I make?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            As many as you want. Post every time you complete a job.
+                        </div>
+                    </details>
+
+                    <details class="bg-ep-surface-elevated rounded-xl border border-ep-border group">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer focus-ring rounded-xl">
+                            <span class="font-semibold text-ep-text">Do you offer scheduling?</span>
+                            <span class="faq-icon text-ep-green text-2xl font-light">+</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-ep-text-muted">
+                            Not yet. Right now we focus on instant posting—upload and go. Scheduling is on our roadmap.
+                        </div>
+                    </details>
+                </div>
             </div>
-            <p class="text-ep-text-subtle text-sm mt-6">No credit card required. 14-day free trial.</p>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="py-16 border-t border-ep-border">
@@ -652,25 +726,23 @@
                         <span class="font-heading font-bold text-xl text-ep-text">Easy Posting</span>
                     </div>
                     <p class="text-ep-text-muted text-sm leading-relaxed" style="line-height: 1.7;">
-                        Empowering local businesses to amplify their social media presence effortlessly.
+                        Post Smarter, Not Harder
                     </p>
                 </div>
                 <div>
                     <h4 class="font-heading font-bold text-ep-text mb-4">Product</h4>
                     <ul class="space-y-3">
-                        <li><a href="#features" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Features</a></li>
-                        <li><a href="#pricing" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Pricing</a></li>
-                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Integrations</a></li>
-                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Changelog</a></li>
+                        <li><a href="#how-it-works" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">How It Works</a></li>
+                        <li><a href="#platforms" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Platforms</a></li>
+                        <li><a href="#cta" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Waitlist</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-heading font-bold text-ep-text mb-4">Company</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">About</a></li>
-                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Blog</a></li>
-                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Careers</a></li>
                         <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Contact</a></li>
+                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Support</a></li>
                     </ul>
                 </div>
                 <div>
@@ -678,27 +750,13 @@
                     <ul class="space-y-3">
                         <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Privacy Policy</a></li>
                         <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Terms of Service</a></li>
-                        <li><a href="#" class="text-ep-text-muted hover:text-ep-green text-sm focus-ring rounded transition-colors duration-200">Cookie Policy</a></li>
                     </ul>
+                    <p class="text-ep-text-muted text-sm mt-4">hello@easyposting.app</p>
                 </div>
             </div>
 
-            <div class="border-t border-ep-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-ep-text-subtle text-sm">&copy; 2025 Easy Posting. All rights reserved.</p>
-                <div class="flex items-center gap-4">
-                    <a href="#" class="w-10 h-10 bg-ep-surface hover:bg-ep-green/20 rounded-full flex items-center justify-center focus-ring transition-colors duration-200 border border-ep-border hover:border-ep-green/30">
-                        <svg class="w-5 h-5 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-ep-surface hover:bg-ep-green/20 rounded-full flex items-center justify-center focus-ring transition-colors duration-200 border border-ep-border hover:border-ep-green/30">
-                        <svg class="w-5 h-5 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-ep-surface hover:bg-ep-green/20 rounded-full flex items-center justify-center focus-ring transition-colors duration-200 border border-ep-border hover:border-ep-green/30">
-                        <svg class="w-5 h-5 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-ep-surface hover:bg-ep-green/20 rounded-full flex items-center justify-center focus-ring transition-colors duration-200 border border-ep-border hover:border-ep-green/30">
-                        <svg class="w-5 h-5 text-ep-text-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.126-5.864 10.126-11.854z"/></svg>
-                    </a>
-                </div>
+            <div class="border-t border-ep-border pt-8 text-center">
+                <p class="text-ep-text-subtle text-sm">&copy; 2026 Easy Posting. Built for tradespeople who value efficiency.</p>
             </div>
         </div>
     </footer>
